@@ -19,7 +19,7 @@ class UwTwitterFeed {
     $this->consumer_key = TWITTER_CONSUMER_KEY;
     $this->consumer_secret = TWITTER_CONSUMER_SECRET;
     $this->consumer_oauth_token = TWITTER_ACCESS_TOKEN;
-    $this->consumer_oauth_key = TWITTER_CONSUMER_OAUTH_KEY;
+    $this->access_token_secret = TWITTER_ACCESS_TOKEN_SECRET;
 
     // Avatar size (width in pixels)
     $this->avatar_size = 48;
@@ -38,7 +38,7 @@ class UwTwitterFeed {
                           $this->consumer_key,
                           $this->consumer_secret,
                           $this->consumer_oauth_token,
-                          $this->consumer_oauth_key
+                          $this->access_token_secret
                         );
   }
 
