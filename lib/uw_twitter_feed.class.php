@@ -18,7 +18,7 @@ class UwTwitterFeed {
     // Twitter credentials
     $this->consumer_key = TWITTER_CONSUMER_KEY;
     $this->consumer_secret = TWITTER_CONSUMER_SECRET;
-    $this->consumer_oauth_token = TWITTER_CONSUMER_OAUTH_TOKEN;
+    $this->consumer_oauth_token = TWITTER_ACCESS_TOKEN;
     $this->consumer_oauth_key = TWITTER_CONSUMER_OAUTH_KEY;
 
     // Avatar size (width in pixels)
