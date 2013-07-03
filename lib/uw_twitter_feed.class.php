@@ -70,7 +70,7 @@ class UwTwitterFeed {
   public function tweetHTML($tweet) {
     $out = '<div class="post tweet">';
     $out .= '<div class="thumbnail"><a href="http://twitter.com/' . $tweet->user_screen_name . '"><img src="' . $tweet->profile_image_url . '" alt=""></a></div>';
-    $out .= '<div class="tweet_text">' . $tweet->text . '<span class="tweet_timestamp"><a href="' . $this->tweetURL($tweet) . '">@' . $tweet->user_screen_name . ' | ' . $tweet->created_at . '</a></span></div>';
+    $out .= '<div class="tweet_text">' . htmlspecialchars_decode($tweet->text) . '<span class="tweet_timestamp"><a href="' . $this->tweetURL($tweet) . '">@' . $tweet->user_screen_name . ' | ' . $tweet->created_at . '</a></span></div>';
     $out .= '</div>';
     return $out;
   }
@@ -87,6 +87,10 @@ class UwTwitterFeed {
     // Define the cache key
     $cache_key = $this->transientKey($method,$opts);
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> e884eb62fd0c8744acbe3e1a2255842fad4d7fc5
     // Pull remote data from the cache or fetch it
     if ( ($remote_cache = get_transient($cache_key)) !== FALSE ) {
       $remote_data = $this->myUnserialize($remote_cache);
