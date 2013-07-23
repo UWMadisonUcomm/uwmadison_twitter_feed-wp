@@ -87,10 +87,6 @@ class UwTwitterFeed {
     // Define the cache key
     $cache_key = $this->transientKey($method,$opts);
 
-<<<<<<< HEAD
-=======
-
->>>>>>> e884eb62fd0c8744acbe3e1a2255842fad4d7fc5
     // Pull remote data from the cache or fetch it
     if ( ($remote_cache = get_transient($cache_key)) !== FALSE ) {
       $remote_data = $this->myUnserialize($remote_cache);
