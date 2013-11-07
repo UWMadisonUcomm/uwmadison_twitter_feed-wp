@@ -51,13 +51,13 @@ class UwTwitterFeed {
    *  Return collection of returned tweets as HTML
    */
   public function parse($method, $opts=array()) {
+    $out = '';
     if ( $data = $this->getRemoteData($method, $opts) ) {
-      $out = '';
       foreach ($data->data as $key => $tweet) {
         $out .= $this->tweetHTML($tweet);
       }
-      return $out;
     }
+    return $out;
   }
 
 /**
