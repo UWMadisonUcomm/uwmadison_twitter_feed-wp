@@ -133,17 +133,30 @@ class UwTwitterFeed {
    *  Return parsed array
    */
   function processRemoteData($data,$opts) {
+    /**
+     * Store the current default time zone, which is probably UTC, and switch to the zone
+     * configured in settings, defaulting to America/Chicago. This only works
+     * if a zone name is configured in settings, not a manual offset.
+     */
+    $wp_timezone = date_default_timezone_get();
+    date_default_timezone_set(get_option('timezone_string', 'America/Chicago'));
+
     $out = array();
     foreach ($data as $tweet) {
+      $local_timestamp = strtotime($tweet->created_at);
       $t = (object) array(
         'text' => $this->parseTweet(htmlspecialchars($tweet->text)),
         'user_screen_name' => htmlspecialchars($tweet->user->screen_name),
-        'created_at' => strftime($this->date_format,strtotime($tweet->created_at)),
+        'created_at' => strftime($this->date_format, $local_timestamp),
+        'local_timestamp' => $local_timestamp,
         'profile_image_url' => $tweet->user->profile_image_url,
         'id' => $tweet->id,
       );
       $out[] = $t;
     }
+
+    // Restore previously configured timezone
+    date_default_timezone_set($wp_timezone);
 
     return $out;
   }
