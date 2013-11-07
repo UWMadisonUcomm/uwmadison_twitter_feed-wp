@@ -51,13 +51,13 @@ class UwTwitterFeed {
    *  Return collection of returned tweets as HTML
    */
   public function parse($method, $opts=array()) {
+    $out = '';
     if ( $data = $this->getRemoteData($method, $opts) ) {
-      $out = '';
       foreach ($data->data as $key => $tweet) {
         $out .= $this->tweetHTML($tweet);
       }
-      return $out;
     }
+    return $out;
   }
 
 /**
@@ -150,7 +150,7 @@ class UwTwitterFeed {
         'created_at' => strftime($this->date_format, $local_timestamp),
         'local_timestamp' => $local_timestamp,
         'profile_image_url' => $tweet->user->profile_image_url,
-        'id' => $tweet->id,
+        'id' => $tweet->id_str,
       );
       $out[] = $t;
     }
