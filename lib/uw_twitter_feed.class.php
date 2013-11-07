@@ -150,7 +150,7 @@ class UwTwitterFeed {
         'created_at' => strftime($this->date_format, $local_timestamp),
         'local_timestamp' => $local_timestamp,
         'profile_image_url' => $tweet->user->profile_image_url,
-        'id' => $tweet->id,
+        'id' => $tweet->id_str,
       );
       $out[] = $t;
     }
