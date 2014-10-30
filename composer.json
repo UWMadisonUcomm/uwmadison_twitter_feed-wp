@@ -1,0 +1,22 @@
+{
+  "name"        : "uwmadison-umark/uwmadison_twitter_feed-wp",
+  "description" : "A wordpress plugin to connect with Twitter's API via OAuth and return/parse Twitter data.",
+  "authors"     : [
+    {
+      "name"    : "Vidal Quevedo",
+      "email"   : "quevedo@wisc.edu",
+      "homepage": "http://www.vidalquevedo.com/",
+      "role"    : "Original author"
+    },
+    {
+      "name"    : "Bryan Shelton",
+      "email"   : "bryan@sheltonplace.com",
+      "homepage": "http://sheltonplace.com",
+      "role"    : "Original author"
+    }
+  ],
+  "type": "wordpress-plugin",
+  "require": {
+    "composer/installers": "~1.0"
+  }
+}
